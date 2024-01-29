@@ -11,7 +11,17 @@ if(isset($_POST['submit'])) {
         $purchased_invoice_number = $_POST['pinvoicenumber']; 
         $way_of_purchase = $_POST['wayofpurchase'];
         $purchase_with = $_POST['pwith'];
-        $code->create_bill($studentid, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with, $invoice_file);
+        if($code->create_bill($studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with))
+        {
+                echo "<script>
+                Swal.fire({
+                        title: 'Error!',
+                        text: 'Do you want to continue',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                      })
+                </script>";
+        }
 }
 ?>
 <!DOCTYPE html>

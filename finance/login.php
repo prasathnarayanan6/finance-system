@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
 
     $email = mysqli_real_escape_string($conn, $smail);
     $password = mysqli_real_escape_string($conn, $spassword);
-
+    
     $login = new Code();
     $login->login($email, $password);
 }
