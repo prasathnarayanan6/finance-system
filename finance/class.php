@@ -71,9 +71,9 @@ class Code
         $substrphone = substr($team_contact, 0, 5);
         $substremail = substr($team_mentor_email,0, 5);
         $teamid = md5($team_mentor_email);
-        $sql="INSERT INTO teamdetails(teamid, team_name, team_doj, team_contact, team_mentor_email, team_funded_amount, team_details) VALUES(?,?,?,?,?,?,?)";
+        $sql="INSERT INTO teamdetails(teamid, team_name, team_doj, team_contact, team_mentor_email, team_funded_amount, team_fund_remaining, team_details) VALUES(?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssssss", $teamid, $team_name, $team_doj, $team_contact, $team_mentor_email, $team_funded_amount, $team_details);
+        $stmt->bind_param("ssssssss", $teamid, $team_name, $team_doj, $team_contact, $team_mentor_email, $team_funded_amount, $team_funded_amount, $team_details);
         $stmt->execute();
     }
     function startups_data()
@@ -107,11 +107,14 @@ class Code
     {
         global $conn;
         $sql = "INSERT INTO bills(studentid, student_team, date_of_bill, purchased_item, purchased_amount, purchase_invoice_number, way_of_purchase, purchase_with, funding_remaining) VALUES(?,?,?,?,?,?,?,?,?)";
+
+        //select query execution
         $sql1 = "SELECT team_name, team_mentor_email, team_funded_amount FROM teamdetails WHERE team_name='".$student_team."'";
         $query = $conn->query($sql1);
         $result = mysqli_fetch_assoc($query);
         $amount = $result['team_funded_amount'];
-        $amount_remaining = $amount-$purchased_amount;
+        //select query execution ends here
+        $amount_remaining = $amount-$purchased_amount; // lil bit select query
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssssssss", $studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with, $amount_remaining);
         $stmt->execute();

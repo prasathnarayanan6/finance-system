@@ -32,9 +32,15 @@ if(isset($_POST['submit'])) {
     <title>Create Bill</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+<div class="spinner-wrapper">
+   <div class="spinner-border text-success" role="status">
+      <span class="sr-only"></span>
+   </div>
+</div>
     <div class="container-fluid">
             <center><h5 class="mt-5"><span>CREATE BILL</span></h5></center>
             <form method="post">
@@ -69,7 +75,12 @@ if(isset($_POST['submit'])) {
                             <input type="text" class="form-control" placeholder="Way of Purchase" name="wayofpurchase" required/>
                     </div>
                     <div class="col-md-6 pt-3">
-                            <input type="text" class="form-control" placeholder="Purchase with" name="pwith" required/>
+                        <select class="form-select" name="pwith">
+                                <option>--</option>
+                                <option>Nirmaan-seed</option>
+                                <option>External-Funding</option>
+                        </select>
+                            <!-- <input type="text" class="form-control" placeholder="Purchase with" name="pwith" required/> -->
                     </div>
                     <center>
                     <div class="col-md-6 pt-3">
@@ -79,5 +90,6 @@ if(isset($_POST['submit'])) {
             </div>
             </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
