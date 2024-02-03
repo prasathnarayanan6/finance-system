@@ -53,21 +53,9 @@ $code = new Code();
             </a>
          </li>
          <li>
-            <a href="javascript:window.location.href='http://localhost:81/IMS/finance/accounts.php'" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-grey-700 group">
-               <i class="fa fa-credit-card"></i>
-               <span class="ms-3">Accounts</span>
-            </a>
-         </li>
-         <li>
-            <a href="javascript:window.location.href='http://localhost:81/IMS/finance/invoices.php'" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-grey-700 group">
-               <i class="fa fa-folder-open"></i>
-               <span class="ms-3">Invoices</span>
-            </a>
-         </li>
-         <li>
-            <a href="javascript:window.location.href='http://localhost:81/IMS/finance/reports.php'" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-grey-700 group">
-               <i class="fa fa fa-book"></i>
-               <span class="ms-3">Reports</span>
+            <a href="javascript:window.location.href='http://localhost:81/IMS/finance/externalfunding.php'" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-grey-700 group">
+               <i class="fa-solid fa-circle-dollar-to-slot"></i>               
+               <span class="ms-3">External Funding</span>
             </a>
          </li>
          <li>
@@ -160,7 +148,7 @@ $code = new Code();
                   textViewCount2.textContent = data.funding_utilized;
                   textViewCount3.textContent = data.funded_amount;
                 })
-            }, 1000);
+            }, 2000);
          }
          document.addEventListener('DOMContentLoaded', function (){
          startLiveUpdate();
