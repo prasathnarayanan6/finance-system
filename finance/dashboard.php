@@ -100,7 +100,7 @@ $code = new Code();
                         <div class="bg-warning card">
                            <div class="card-body">
                                  <h4 class="card-title d-flex h3">
-                                    <span class="text-white pt-2 text-lg"><b><span id="fr">146</span></b></span>
+                                    <span class="text-white pt-2 text-lg"><b><span id="ts">NA</span></b></span>
                                  </h4>
                                  <span class="card-title text-white text-size-sm d-flex">Total Startups</span>
                            </div>
@@ -110,7 +110,7 @@ $code = new Code();
                         <div class="bg-danger card">
                            <div class="card-body">
                                  <h4 class="card-title d-flex h3">
-                                    <span class="text-white pt-2 text-lg"><b><i class="fa fa-inr" aria-hidden="true"></i> <span id="fr">44,01,332</span></b></span>
+                                    <span class="text-white pt-2 text-lg"><b><i class="fa fa-inr" aria-hidden="true"></i> <span id="fd">NA</span></b></span>
                                  </h4>
                                  <span class="card-title text-white text-size-sm d-flex">Funding Disbursed</span>
                            </div>
@@ -120,7 +120,7 @@ $code = new Code();
                         <div class="bg-success card">
                            <div class="card-body">
                                  <h4 class="card-title d-flex h3">
-                                    <span class="text-white pt-2 text-lg"><b><i class="fa fa-inr" aria-hidden="true"></i> <span id="fr">44,01,332</span></b></span>
+                                    <span class="text-white pt-2 text-lg"><b><i class="fa fa-inr" aria-hidden="true"></i><span id="fu">Na</span></b></span>
                                  </h4>
                                  <span class="card-title text-white text-size-sm d-flex"><span id="funding">Funding Utilized</span></span>
                            </div>
@@ -146,6 +146,26 @@ $code = new Code();
          </div>
     </div>
 </div>
+<script>
+   const url = "http://localhost:81/IMS/finance/data.php";
+   function startLiveUpdate(){
+            const textViewCount1 = document.getElementById('ts');
+            const textViewCount2 = document.getElementById('fd');
+            const textViewCount3 = document.getElementById('fu');
+            setInterval(function() {
+               fetch(url).then(function(response){
+                  return response.json();
+               }).then(function(data){
+                  textViewCount1.textContent = data.team_count;
+                  textViewCount2.textContent = data.funding_utilized;
+                  textViewCount3.textContent = data.funded_amount;
+                })
+            }, 1000);
+         }
+         document.addEventListener('DOMContentLoaded', function (){
+         startLiveUpdate();
+   });
+</script>
 <script src="script.js"></script>
 <script src="funded.js"></script>
 </body>

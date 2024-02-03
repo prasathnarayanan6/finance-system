@@ -157,7 +157,6 @@
                                                 <th scope="col">Team Founder/ Co-Founder</th>
                                                 <th scope="col">Cohort</th>
                                                 <th scope="col">Funding Disbursed</th>
-                                                <!-- <th scope="col">Funding Utilized</th> -->
                                                 <th scope="col">Balance</th>
                                                 <th scope="col">Action</th>
                                              </tr>
@@ -165,21 +164,7 @@
                                        <tbody class="tbody">
                                        </tbody>
                                     </table>
-                                          <!-- <nav aria-label="..." class="">
-                                                <ul class="pagination">
-                                                   <li class="page-item disabled">
-                                                      <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                   </li>
-                                                   <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                   <li class="page-item active">
-                                                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                                   </li>
-                                                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                   <li class="page-item">
-                                                      <a class="page-link" href="#">Next</a>
-                                                   </li>
-                                                </ul>
-                                          </nav> -->
+                                             
                                  </div>
                            </div>
                      </div>
@@ -191,21 +176,7 @@
 <script src="../assets/lity/lity-2.4.1/dist/lity.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-<script>
-   // $(document).ready(function() {
-   //    $('#myTable').DataTable({
-   //       "paging": true,      // Enable pagination
-   //       "lengthChange": true, // Disable per-page drop-down
-   //       "searching": false,   // Disable search bar
-   //       "info": false,        // Disable table information display
-   //       "ordering": false,    // Disable sorting
-   //       "autoWidth": false,   // Disable auto-width calculation
-   //       "pageLength": 5,
-   //       "lengthMenu": [5, 10, 25, 50],
-   //       "dom": 'lrtip',
-   //       "order": []
-   //    });
-   // });
+<script>   
    const searchFun = () => {
       let filter = document.getElementById('myInput').value.toUpperCase();
 
@@ -240,14 +211,14 @@
                <td>${response[i].TeamName}</td>
                <td>${response[i].team_date_of_Joining}</td>
                <td>${response[i].team_funded_amount}</td>
-               <td>${response[i].team_funded_amount}</td>
+               <td>${response[i].team_fund_remaining}</td>
                <td>
                      <div class="dropdown">
                         <button type="button" class="btn" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                            <i class="fas fa-ellipsis-vertical"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">View</a></li>
+                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].TeamName} '">View</a></li>
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./view_members.php?Tid=${response[i].teamID} '">View Members</a></li>
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Update</a></li>
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Delete</a></li>

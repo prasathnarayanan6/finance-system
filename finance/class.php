@@ -91,7 +91,7 @@ class Code
     {
         $client_ip = $_SERVER['REMOTE_ADDR'];
 
-        if (filter_var($client_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if(filter_var($client_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             echo $client_ip;
         }         
     }
@@ -106,17 +106,20 @@ class Code
     function create_bill($studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with)
     {
         global $conn;
-        $sql = "INSERT INTO bills(studentid, student_team, date_of_bill, purchased_item, purchased_amount, purchase_invoice_number, way_of_purchase, purchase_with, funding_remaining) VALUES(?,?,?,?,?,?,?,?,?)";
-
-        //select query execution
-        $sql1 = "SELECT team_name, team_mentor_email, team_funded_amount FROM teamdetails WHERE team_name='".$student_team."'";
+        $sql = "INSERT INTO bills(studentid, team_name, date_of_bill, purchased_item, purchased_amount, purchase_invoice_number, way_of_purchase, purchase_with) VALUES(?,?,?,?,?,?,?,?)";
+               
+        $sql1 = "SELECT team_name, team_mentor_email, team_fund_remaining FROM teamdetails WHERE team_name='".$student_team."'";
         $query = $conn->query($sql1);
         $result = mysqli_fetch_assoc($query);
-        $amount = $result['team_funded_amount'];
+        $amount = $result['team_fund_remaining'];
         //select query execution ends here
         $amount_remaining = $amount-$purchased_amount; // lil bit select query
+
+        $sql2 = "UPDATE teamdetails SET team_fund_remaining='".$amount_remaining."' ";
+        $query2 = $conn->query($sql2);
+        
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssssssss", $studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with, $amount_remaining);
+        $stmt->bind_param("ssssssss", $studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with);
         $stmt->execute();
     }
     function total_teams()

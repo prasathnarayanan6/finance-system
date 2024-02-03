@@ -1,10 +1,6 @@
 <?php 
 require_once "conn.php";
-if(isset($_GET['']))
-{
-
-}
-$sql = "SELECT * FROM bills WHERE student_team='Mainto'";
+$sql = "SELECT * FROM bills WHERE team_name='Mainto'";
 $result = $conn->query($sql);
 if($result->num_rows>0)
 {

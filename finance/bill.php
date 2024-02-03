@@ -29,7 +29,7 @@
    <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-md-12">
-                <center><h2 class="text-success">Team <?php echo $row['team_name']; ?></h2></center>
+                <center><h2 class="text-success">Team <?php echo $id; ?></h2></center>
             </div>
             <div class="col-md-4 mt-4">
                     <span class="text-secondary">Reports / Bills</span>
@@ -48,8 +48,8 @@
                         <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-12"> 
-                                            <span>Billings of Team : <?php echo $row['team_name']; ?></span>  
+                                        <div class="col-md-6"> 
+                                            <span>Billings of Team : <?php echo $id; ?></span>  
                                         </div>
                                         <div class="mt-4 table-responsive">
                                                 <table class="table" id="myTable">
@@ -57,18 +57,18 @@
                                                                 <tr class="text-secondary">
                                                                     <th scope="col">Student ID</th>
                                                                     <th scope="col">Date of Bill</th>
-                                                                    <th scope="col">Purchased Item</th>
+                                                                    <th scope="col">Purchased Item / Vendor Name</th>
                                                                     <th scope="col">Purchased Amount</th>
                                                                     <th scope="col">Purchased Invoice Number</th>
                                                                     <th scope="col">Way of Purchase</th>
                                                                     <th scope="col">Purchase with</th>
-                                                                    <th scope ="col">Funding Amount Remaining</th>
                                                                     <th scope="col">Action</th>
                                                                 </tr>
                                                         </thead>
                                                         <tbody class="tbody">
                                                         <?php
-                                                                    $sql = "SELECT * FROM bills WHERE student_team='Mainto'";
+                                                                    $sql = "SELECT bills.*, teamdetails.* FROM bills, teamdetails WHERE bills.team_name='". $id."' AND teamdetails.team_name=bills.team_name";
+                                                                    // $sql = "SELECT * FROM bills WHERE team_name='Mainto'";
                                                                     $query = $conn->query($sql);
                                                                     while($result = mysqli_fetch_assoc($query))
                                                                     {               
@@ -81,7 +81,7 @@
                                                                 <td><?php echo $result['purchase_invoice_number']; ?></td>
                                                                 <td><?php echo $result['way_of_purchase']; ?></td>
                                                                 <td><?php echo $result['purchase_with']; ?></td>
-                                                                <td><?php echo $result['funding_remaining']; ?></td>
+                                                                <!-- <td></td> -->
                                                                 <td>
                                                                 <div class="dropdown">
                                                                             <button type="button" class="btn" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
