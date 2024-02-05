@@ -98,17 +98,17 @@
                                  <h2 class="card-title">
                                        <center><span class="text-white h6">Startups Details</span><center><br>
                                        <div class="row">
-                                             <div class="col-md-4 col-sm-4">
+                                             <div class="col-md-6 col-sm-6">
                                                    <span class="text-white h1"><i class='fa fa-rocket'></i></span><br>
                                                    <span class="text-sm text-white">Details</span>
                                              </div>
-                                             <div class="col-md-4 a col-sm-4">
+                                             <!-- <div class="col-md-4 a col-sm-4">
                                                    <a href='' class="text-white " data-lity data-lity-target="./analytics.php">
                                                       <span class="text-white h1 startuphover"><i class='fa fa-pie-chart'></i></span>
                                                    </a><br>
                                                    <span class="text-sm text-white">Analytics</span>
-                                             </div>
-                                             <div class="col-md-4 a col-sm-4">
+                                             </div> -->
+                                             <div class="col-md-6 a col-sm-6">
                                                    <a href=''>
                                                       <span class="text-white h1"><i class='fa fa-book'></i></span>
                                                    </a><br>
@@ -142,7 +142,7 @@
                                        <thead>
                                              <tr class="text-success">
                                                 <th scope="col">Team Name</th>
-                                                <th scope="col">Team Founder/ Co-Founder</th>
+                                                <th scope="col">Team Founder Email</th>
                                                 <th scope="col">Cohort</th>
                                                 <th scope="col">Funding Disbursed</th>
                                                 <th scope="col">Balance</th>
@@ -196,7 +196,7 @@
          {
             output += `<tr>
                <td>${response[i].TeamName}</td>
-               <td>${response[i].TeamName}</td>
+               <td>${response[i].team_mentor_email}</td>
                <td>${response[i].team_date_of_Joining}</td>
                <td>${response[i].team_funded_amount}</td>
                <td>${response[i].team_fund_remaining}</td>
@@ -209,7 +209,7 @@
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].TeamName} '">View</a></li>
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./view_members.php?Tid=${response[i].teamID} '">View Members</a></li>
                            <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Update</a></li>
-                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Delete</a></li>
+                           <li><a class="dropdown-item" href="./delete.php?Tid=${response[i].TeamName}">Delete</a></li>
                         </ul>
                      </div>
                </td>

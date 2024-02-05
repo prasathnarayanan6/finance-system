@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
                                 <input type="text" class="form-control" name="team_contact" placeholder="Team contact Number" required/>
                             </div>
                             <div class="col-md-12 pt-3">
-                                <input type="email" class="form-control" name="team_mentor_email" placeholder="Team Mentor Mail" required/>
+                                <input type="email" class="form-control" name="team_mentor_email" placeholder="Team Founder Mail" required/>
                             </div>
                             <div class="col-md-12 pt-3">
                                 <input type="text" class="form-control" name="team_amount_funded" placeholder="Amount Funded" required/>
