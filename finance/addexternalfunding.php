@@ -1,15 +1,10 @@
 <?php 
 require "./class.php";
+$code = new Code();
 if(isset($_POST['submit']))
 {
-    $team_name = $_POST['team_name'];
-    $team_doj = $_POST['date_of_joining'];
-    $team_contact = $_POST['team_contact'];
-    $team_mentor_email=$_POST['team_mentor_email'];
-    $team_funded_amount= $_POST['team_amount_funded'];
-    $team_details=$_POST['team_details'];
-    $create = new Code();
-    $create->create_startup($team_name, $team_doj, $team_contact, $team_mentor_email, $team_funded_amount, $team_details);
+   $external_funding_organization = $_POST['funding_org'];
+   $unded_amount = $_POST['ext_fund_amount'];
 }
 ?>
 <!DOCTYPE html>
@@ -39,8 +34,6 @@ if(isset($_POST['submit']))
     </style>
 </head>
 <body>
-
-
 <div class="spinner-wrapper">
    <div class="spinner-border text-success" role="status">
       <span class="sr-only">Loading...</span>
@@ -111,14 +104,16 @@ if(isset($_POST['submit']))
             <div class="col-md-12 col-sm-12 col-lg-12">
                 <div class="card">
                         <div class="card-body">
-                                <input type="text" placeholder="Funding organization Name" class="form-control form-control-sm"/> <br>
-                                <select class="form-select form-select-sm" name="pwith">
+                           <form action="" method="post">
+                                <input type="text" placeholder="Funding organization Name" class="form-control form-control-sm" name="funding_org"/> <br>
+                                <select class="form-select form-select-sm" name="team">
                                         <option>--</option>
                                         <option>Nirmaan-seed</option>
                                         <option>External-Funding</option>
                                 </select><br>
-                                <input type="text" placeholder="Funded Amount" class="form-control form-control-sm"/> <br/>
+                                <input type="text" placeholder="Funded Amount" class="form-control form-control-sm" name="ext_fund_amount"/> <br/>
                                 <button type="submit" class="btn btn-success btn-sm text-dark">Add</button>
+                           </form>
                         </div>
                 </div>
             </div>

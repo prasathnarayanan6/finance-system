@@ -133,9 +133,15 @@ function total_teams()
     $row = $result['team_count'];
     echo $row;
 }
-function external_funding()
+function external_funding($external_funding_id, $external_funding_organization, $teamid, $funded_amount)
 {
-    $sql = "INSERT INTO ";
+    global $conn;
+    $sql = "INSERT INTO external_funding(external_funding_id, external_funding_organization, teamid, funded_amount) VALUES (?,?,?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $external_funding_id, $external_funding_organization, $teamid, $funded_amount);
+    $stmt->execute();    
 }
 }
+// $code = new Code();
+// $code->external_funding("1","t", "ee", "fin");
 ?>
