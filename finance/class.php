@@ -133,15 +133,26 @@ function total_teams()
     $row = $result['team_count'];
     echo $row;
 }
-function external_funding($external_funding_id, $external_funding_organization, $teamid, $funded_amount)
+function external_funding($external_funding_id, $external_funding_organization, $teamid, $funded_amount, $date)
 {
     global $conn;
-    $sql = "INSERT INTO external_funding(external_funding_id, external_funding_organization, teamid, funded_amount) VALUES (?,?,?,?)";
+    date_default_timezone_set("America/New_York");
+    $date = date("Y-m-d_h:i:sa");
+    $sql = "INSERT INTO external_funding(external_funding_id, external_funding_organization, teamid, funded_amount, funded_entry_time, funded_date) VALUES (?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $external_funding_id, $external_funding_organization, $teamid, $funded_amount);
+    $stmt->bind_param("ssss", $external_funding_id, $external_funding_organization, $teamid, $funded_amount, $date, $date);
     $stmt->execute();    
 }
+function external_funding_teams()
+{
+    global $conn;
+    date_default_timezone_set("Asia/kolkata");
+    $timestamp = date("Y-m-d H:i:s");
+    $sql = "SELECT * FROM teamdetails";
+    $query = $conn->query($sql);
+    $result = mysqli_fetch_assoc($query);
+    $row = $result['team_name'];
+    return $row;
 }
-// $code = new Code();
-// $code->external_funding("1","t", "ee", "fin");
+}
 ?>

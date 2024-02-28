@@ -85,8 +85,11 @@
    </div>
 </aside>
 <div class="p-0 sm:ml-64">
-    <nav class="navbar navbar-white mb-4  bg-light">
+    <nav class="navbar navbar-white mb-4 bg-light">
         <a class="navbar-brand" href="#"><span class="text-success">Nirmaan IITM</span> - <span>Finance</span></a>
+        <span class="d-flex justify-content-end">
+            Welcome 
+        </span>
     </nav>
     <div class="container-fluid">
          <div class="text-m text-secondary">Startups / Overview</div>
@@ -201,16 +204,16 @@
                <td>${response[i].team_funded_amount}</td>
                <td>${response[i].team_fund_remaining}</td>
                <td>
-                     <div class="dropdown">
-                        <button type="button" class="btn" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                           <i class="fas fa-ellipsis-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].TeamName} '">View</a></li>
-                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./view_members.php?Tid=${response[i].teamID} '">View Members</a></li>
-                           <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Update</a></li>
-                           <li><a class="dropdown-item" href="./delete.php?Tid=${response[i].TeamName}">Delete</a></li>
-                        </ul>
+                     <div class="row">
+                        <div class="col-sm-4 col-3 text-primary">
+                              <a href="bill.php?Tid=${response[i].TeamName}" data-lity data-lity=bill.php?Tid=${response[i].teamID}><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-4 col-3 text-dangerr">
+                              <a href="delete.php?Tid=${response[i].TeamName}" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                        <div class="col-sm-4 col-3">
+                              <a href="editstartupdetails.php?Tid=${response[i].TeamName}" class="text-success" data-lity><i class="fa-solid fa-pencil"></i></a>
+                        </div>
                      </div>
                </td>
             </tr>`;

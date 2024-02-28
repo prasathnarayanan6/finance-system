@@ -31,15 +31,20 @@
             <div class="col-md-12">
                 <center><h2 class="text-success">Team <?php echo $id; ?></h2></center>
             </div>
-            <div class="col-md-4 mt-4">
+            <div class="col-md-3 mt-4">
                     <span class="text-secondary">Reports / Bills</span>
             </div>
-            <div class="col-md-4 mt-4">
+            <div class="col-md-3 mt-4">
                     <span>
-                        <a href="excel.php" class="btn btn-success btn-sm" data-lity data-lity-target="excel.php">Download Excel</a>
+                        <b><a href="excel.php" class="text-success" data-lity data-lity-target="excel.php" style="font-size: 28px;"><i class="fas fa-file-excel"></i></a></b>
                     </span>
             </div>
-            <div class="col-md-4 mt-4 d-flex justify-content-end">
+            <div class="col-md-3 mt-4">
+                    <span>
+                        <b><a href="excel.php" class="text-primary" data-lity data-lity-target="excel.php" style="font-size: 28px;"><i class="fa-solid fa-file-pdf"></i></a></b>
+                    </span>
+            </div>
+            <div class="col-md-3 mt-4 d-flex justify-content-end">
                     <span>
                         <a href="" class="btn btn-primary btn-sm" data-lity data-lity-target="createbill.php">Create Bill</a>
                     </span>
@@ -55,11 +60,12 @@
                                                 <table class="table" id="myTable">
                                                         <thead>
                                                                 <tr class="text-secondary">
-                                                                    <th scope="col">Student ID</th>
+                                                                    <!-- <th scope="col">Student ID</th> -->
                                                                     <th scope="col">Date of Bill</th>
-                                                                    <th scope="col">Purchased Item / Vendor Name</th>
-                                                                    <th scope="col">Purchased Amount</th>
-                                                                    <th scope="col">Purchased Invoice Number</th>
+                                                                    <th scope="col">Item</th>
+                                                                    <th scope="col">Vendor Name</th>
+                                                                    <th scope="col">Amount</th>
+                                                                    <th scope="col">Invoice Number</th>
                                                                     <th scope="col">Way of Purchase</th>
                                                                     <th scope="col">Purchase with</th>
                                                                     <th scope="col">Action</th>
@@ -68,21 +74,21 @@
                                                         <tbody class="tbody">
                                                         <?php
                                                                     $sql = "SELECT bills.*, teamdetails.* FROM bills, teamdetails WHERE bills.team_name='". $id."' AND teamdetails.team_name=bills.team_name";
-                                                                    // $sql = "SELECT * FROM bills WHERE team_name='Mainto'";
                                                                     $query = $conn->query($sql);
                                                                     while($result = mysqli_fetch_assoc($query))
                                                                     {               
                                                         ?>
                                                             <tr>
-                                                                <td><?php echo $result['studentid']; ?></td>
+                                                                <!-- <td><?php echo $result['studentid']; ?></td> -->
                                                                 <td><?php echo $result['date_of_bill']; ?></td>
                                                                 <td><?php echo $result['purchased_item']; ?></td>
+                                                                <td>Amazon Inc.</td>
                                                                 <td><?php echo $result['purchased_amount']; ?></td>
                                                                 <td><?php echo $result['purchase_invoice_number']; ?></td>
                                                                 <td><?php echo $result['way_of_purchase']; ?></td>
                                                                 <td><?php echo $result['purchase_with']; ?></td>
                                                                 <!-- <td></td> -->
-                                                                <td>
+                                                                <!-- <td>
                                                                 <div class="dropdown">
                                                                             <button type="button" class="btn" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                                                 <i class="fas fa-ellipsis-vertical"></i>
@@ -92,6 +98,16 @@
                                                                                 <li><a class="dropdown-item" href="" data-lity data-lity-target='./bill.php?Tid=${response[i].teamID} '">Delete</a></li>
                                                                             </ul>
                                                                 </div>
+                                                                </td> -->
+                                                                <td>
+                                                                    <div class="row">
+                                                                        <div class="col text-primary">
+                                                                            <a href="bill.php?Tid=${response[i].TeamName}" data-lity data-lity=bill.php?Tid=${response[i].teamID}><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                        </div>
+                                                                        <div class="col text-danger">
+                                                                            <a href="delete.php?Tid=${response[i].TeamName}" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                                                        </div>
+                                                                    </div>
                                                                 </td>
                                                             </tr>
                                                         <?php }?>
@@ -107,5 +123,7 @@
    <script src="script.js"></script>
    <script src="../assets/lity/lity-2.4.1/dist/lity.js"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+   </script>
 </body>
 </html>

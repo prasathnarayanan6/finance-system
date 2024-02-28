@@ -1,9 +1,12 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startups</title>
+    <title>External funding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel='stylesheet' href="../assets/bootstrap/css/bootstrap.min.css"/>
     <link rel='stylesheet' href="../style.css"/>
@@ -87,10 +90,10 @@
                                  <div class="card-title">
                                     <div class="row">
                                        <div class="col-md-6">
-                                             <h3>Accounts</h3>
+                                             <h3>External funding details</h3>
                                        </div>
                                        <div class="col-md-6">
-                                             <span class="d-flex justify-content-end"><a href="addexternalfunding.php" class="btn btn-success btn-sm">Add External Funding Detail</a></span>
+                                             <span class="d-flex justify-content-end"><a href="addexternalfunding.php" class="btn btn-success btn-sm">+</a></span>
                                        </div>
                                     </div>   
                                  </div><!--card title -->
@@ -101,6 +104,7 @@
                                                 <th scope="col">Funding Organization</th>
                                                 <th scope="col">Team Name</th>
                                                 <th scope="col">Funded Amount</th>
+                                                <th scope="col">Amount Remaining</th>
                                                 <th scope="col">Action</th>
                                              </tr>
                                        </thead>

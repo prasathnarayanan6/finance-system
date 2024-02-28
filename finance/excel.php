@@ -1,6 +1,6 @@
 <?php 
 require_once "conn.php";
-$sql = "SELECT * FROM bills WHERE team_name='Mainto'";
+$sql = "SELECT * FROM bills WHERE team_name='Abhyaan'";
 $result = $conn->query($sql);
 if($result->num_rows>0)
 {
@@ -8,7 +8,7 @@ if($result->num_rows>0)
     while ($row = $result->fetch_assoc())
     {
         $data[] = $row;
-    }
+    }     
     $csvFileName = 'bills.csv';
     $csvFilePath = 'C:/Users/Public/data/' . $csvFileName; 
     $csvFile = fopen($csvFilePath, 'w');

@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
 <body>
     <div class="container">
         <div class="row mt-3">
-            <div class="col-lg-12 col-sm-6 mb-3">
+            <div class="col-lg-12 col-sm-6 mb-2">
                     <center><img src="../assets/images/nirmaaniitm.svg" width='150px'></img></center><br>
                     <center><h5 class="pt-2"><b>Startup Management System - Finance</b></h5></center>
             </div>
@@ -34,7 +34,7 @@ if(isset($_POST['submit'])) {
                     <div class="row">
                     <center>
                             <div class="col-md-4 col-sm-12 login-color">
-                                <div class="card mt-5 mb-5">
+                                <div class="card mt-3 mb-3">
                                     <div class="card-body text-left">
                                         <h3 class="font-italic"><b>Login</b></h3><br>
                                         <form method="post" action="" id="login-form">

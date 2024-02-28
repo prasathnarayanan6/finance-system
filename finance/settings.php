@@ -79,8 +79,11 @@ $row = $code->settings();
    </div>
 </aside>
 <div class="p-0 sm:ml-64">
-    <nav class="navbar navbar-white mb-4  bg-light">
+    <nav class="navbar navbar-white mb-4 bg-light">
         <a class="navbar-brand" href="#"><span class="text-success">Nirmaan IITM</span> - <span>Finance</span></a>
+        <span class="d-flex justify-content-end">
+            Welcome 
+        </span>
     </nav>
     <div class="container-fluid">
         <span class="text-secondary">Settings / Support_team</span> 

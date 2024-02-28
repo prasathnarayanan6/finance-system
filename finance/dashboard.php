@@ -27,6 +27,7 @@ $code = new Code();
    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
    </svg>
 </button>
+
 <aside id="separator-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-green-700">
       <ul class="space-y-2 font-medium">
@@ -75,8 +76,11 @@ $code = new Code();
    </div>
 </aside>
 <div class="p-0 sm:ml-64">
-    <nav class="navbar navbar-white mb-4  bg-light">
+    <nav class="navbar navbar-white mb-4 bg-light">
         <a class="navbar-brand" href="#"><span class="text-success">Nirmaan IITM</span> - <span>Finance</span></a>
+        <span class="d-flex justify-content-end">
+            Welcome 
+        </span>
     </nav>
     <div class="container-fluid">
          <div class="text-m text-success d-flex justify-content-end">
@@ -155,6 +159,6 @@ $code = new Code();
    });
 </script>
 <script src="script.js"></script>
-<!-- <script src="funded.js"></script> -->
+<script src="funded.js"></script>
 </body>
 </html>

@@ -4,8 +4,9 @@ $code = new Code();
 if(isset($_POST['submit']))
 {
    $external_funding_organization = $_POST['funding_org'];
-   $unded_amount = $_POST['ext_fund_amount'];
+   $funded_amount = $_POST['ext_fund_amount'];
 }
+$rows = $code->external_funding_teams();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,10 +107,15 @@ if(isset($_POST['submit']))
                         <div class="card-body">
                            <form action="" method="post">
                                 <input type="text" placeholder="Funding organization Name" class="form-control form-control-sm" name="funding_org"/> <br>
+                                <select class="form-select form-select-sm" name="funding">
+                                       <option>Select Team</option>
+                                       <?php foreach($rows as $row) { ?>
+                                          <option><?php echo $row['team_name']; ?></option>
+                                       <?php } ?>
+                                 </select><br>
                                 <select class="form-select form-select-sm" name="team">
                                         <option>--</option>
-                                        <option>Nirmaan-seed</option>
-                                        <option>External-Funding</option>
+                                        <option>--</option>
                                 </select><br>
                                 <input type="text" placeholder="Funded Amount" class="form-control form-control-sm" name="ext_fund_amount"/> <br/>
                                 <button type="submit" class="btn btn-success btn-sm text-dark">Add</button>

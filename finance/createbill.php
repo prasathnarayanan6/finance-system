@@ -2,27 +2,6 @@
 require "class.php";
 $code = new Code();
 $rows = $code->startups_data();
-if(isset($_POST['submit'])) {
-        $studentid = $_POST['studentid'];
-        $student_team = $_POST['team_name'];
-        $bill_date = $_POST['dob'];
-        $purchaseditem = $_POST['purchaseitem'];
-        $purchased_amount = $_POST['pamount'];
-        $purchased_invoice_number = $_POST['pinvoicenumber']; 
-        $way_of_purchase = $_POST['wayofpurchase'];
-        $purchase_with = $_POST['pwith'];
-        if($code->create_bill($studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with))
-        {
-                echo "<script>
-                Swal.fire({
-                        title: 'Error!',
-                        text: 'Do you want to continue',
-                        icon: 'error',
-                        confirmButtonText: 'Cool'
-                      })
-                </script>";
-        }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +22,7 @@ if(isset($_POST['submit'])) {
 </div>
     <div class="container-fluid">
             <center><h5 class="mt-5"><span>CREATE BILL</span></h5></center>
-            <form method="post">
+            <form method="post" class="g-3 needs-validation">
             <div class="row mt-5">
                     <div class="col-md-12">
                          <span class="text-dark">Reports / Create Bill</span>
@@ -93,3 +72,26 @@ if(isset($_POST['submit'])) {
     <script src="script.js"></script>
 </body>
 </html>
+<?php 
+if(isset($_POST['submit'])) {
+        $studentid = $_POST['studentid'];
+        $student_team = $_POST['team_name'];
+        $bill_date = $_POST['dob'];
+        $purchaseditem = $_POST['purchaseitem'];
+        $purchased_amount = $_POST['pamount'];
+        $purchased_invoice_number = $_POST['pinvoicenumber']; 
+        $way_of_purchase = $_POST['wayofpurchase'];
+        $purchase_with = $_POST['pwith'];
+        if($code->create_bill($studentid, $student_team, $bill_date, $purchaseditem, $purchased_amount, $purchased_invoice_number, $way_of_purchase, $purchase_with))
+        {
+                echo "<script>
+                Swal.fire({
+                        title: 'Error!',
+                        text: 'Do you want to continue',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                      })
+                </script>";
+        }
+}
+?>
